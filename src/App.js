@@ -1,43 +1,28 @@
-import React from 'react';
 import './App.css';
-import ProductCard from './ProductCard';
-
-const productsList = [
-  {
-    id: 0, 
-    name: "Cotización",
-    description: "Hablar con nosotros para determinar el alcance de su proyecto",
-    price: "$0.00 MXN",
-    category: "Consulta"
-  },
-  {
-    id: 1, 
-    name: "Diseño de Logo",
-    description: "Hablar con nosotros para determinar el alcance de su proyecto",
-    price: "$2499.00 MXN",
-    category: "Diseño"
-  },
-  {
-    id: 2, 
-    name: "Mural customizado 4x2m",
-    description: "Hablar con nosotros para determinar el alcance de su proyecto",
-    price: "$2995.00 MXN",
-    category: "Pintura"
-  },
-  {
-    id: 3, 
-    name: "Mural customizado 8x2m",
-    description: "Hablar con nosotros para determinar el alcance de su proyecto",
-    price: "$5995.00 MXN",
-    category: "Pintura"
-  }
-]
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import 'font-awesome/css/font-awesome.min.css';
+//import PaymentForm from './components/PaymentForm';
+import AboutPage from './pages/AboutPage.js';
+import HomePage from './pages/HomePage.js';
+import PortfolioPage from './pages/PortfolioPage.js';
+import ServicePage from './pages/ServicePage.js';
 
 function App() {
+
   return (
     <div className="App">
-      <h1>Lista de productos de pintura:</h1>
-      <h4>{ productsList.map(p => <ProductCard product={p} /> ) }</h4>
+      <Header />
+      <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='Nosotros' element={<AboutPage/>} />
+          <Route path='Servicios' element={<ServicePage/>} />
+          <Route path='Portafolio' element={<PortfolioPage/>} />
+      </Routes>
+    
+
+      <Footer />
     </div> 
   );
 }
